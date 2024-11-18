@@ -1,18 +1,18 @@
 1. Shows tab
     - Trending (Most curretly watched show on the platform)
-        list of shows that are currently in watching status. Sort by watch count and release date.
+        ==> list of shows that are currently in watching status. Sort by watch count and release date.
     - Popular (Popular shows of all time based off ratings)
-        list of shows that have high ratings.
+        ==> list of shows that have high ratings.
     - Favourited (Most favourited shows on the platform)
-        list of shows that are favourited by most users.
+        ==> list of shows that are favourited by most users.
 
 2. Movies tab
     - Trending (Most curretly watched movies on the platform)
-        list of movies that are currently in watching status. Sort by watch count and release date.
+        ==> list of movies that are currently in watching status. Sort by watch count and release date.
     - Popular (Popular movies of all time based off ratings)
-        list of movies that have high ratings.
+        ==> list of movies that have high ratings.
     - Favourited (Most favourited movies on the platform)
-        list of movies that are favourited by most users.
+        ==> list of movies that are favourited by most users.
 
 3. Discover
     Fetch from the official trackitCollection
@@ -34,22 +34,22 @@
 
 5. Dashboard
     - Currently watching movie (Checked-in)
-        list of movies loggedIn user is watching
+        ==> list of movies loggedIn user is watching
     - Watchlist
-        list of movies loggedIn user has added to watchlist
+        ==> list of movies loggedIn user has added to watchlist
     - Stats:
         a. Number of movies watched
-            total number of movies watched by loggedUser
+            ==> total number of movies watched by loggedUser
         b. Number of shows watched
-            total number of shows watched by loggedUser
+            ==> total number of shows watched by loggedUser
         c. Total runtime
-            total runtime count of all movies & series watched by loggedUser
+            ==> total runtime count of all movies & series watched by loggedUser
         d. Total episodes watched
-            total number of movies and shows that the loggedUser has watched
+            ==> total number of movies and shows that the loggedUser has watched
     - My Favourites
-        list of loggedUser favourites
+        ==> list of loggedUser favourites
     - Recently Watched
-        list of loggedUser movies and series in watched status
+        ==> list of loggedUser movies and series in watched status
 
 6. My Collection
     - List the collections saved by the loggedIn User.
