@@ -37,15 +37,15 @@
         - list of movies loggedIn user is watching
     - Watchlist<br/>
         - list of movies loggedIn user has added to watchlist
-    - Stats:
+    - Stats:<br/>
         a. Number of movies watched<br/>
-        - total number of movies watched by loggedUser
+        - total number of movies watched by loggedUser<br/>
         b. Number of shows watched<br/>
-        - total number of shows watched by loggedUser
+        - total number of shows watched by loggedUser<br/>
         c. Total runtime<br/>
-        - total runtime count of all movies & series watched by loggedUser
+        - total runtime count of all movies & series watched by loggedUser<br/>
         d. Total episodes watched<br/>
-        - total number of movies and shows that the loggedUser has watched
+        - total number of movies and shows that the loggedUser has watched<br/>
     - My Favourites<br/>
         - list of loggedUser favourites
     - Recently Watched<br/>
