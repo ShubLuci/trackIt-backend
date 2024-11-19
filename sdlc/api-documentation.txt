@@ -1,0 +1,217 @@
+API's documentation:
+
+=========================================================================
+I. User Registration and Authentication
+
+1. Register User
+    - Path: POST /signUp
+    - Sample Payload: 
+        {
+            username: "",
+            email: "",
+            password: "",
+            location: "",
+            gender: "",
+            birthday: "",
+            streamingServices: [],
+            genres: [],
+            movieIds: [],
+            showIds: []
+        }
+    - Validations:
+        a. 'username' is unique.
+        b. 'email' should be a valid email address.
+        c. 'password' should be encrypted and should be a strong password.
+        d. 'location' should be valid.
+        e. 'gender' should be either Male or Female or Trans.
+        f. 'birthday' should be a 18+ user and have a valid date.
+        g. 'streamingServices' should be from one of these: Netflix, Amazon Prime, Disney+, HBO Max, Paramount+, Crunchyroll, Youtube, Apple TV+.
+        h. 'genres' should be from genres.txt files only.
+        i. mongoose handles createdAt and updatedAt automatically if you define timestamp as true in mongoose model. Do not manually send this in payload.
+
+2. Login User
+    - Path: GET /login?email=cshubyadav@gmail.com&password=We@123
+    - Validations:
+        a. 'email' be should be present in users table, if not throw error
+        b. 'password' in database should be decrypted and then compared to the passed password.
+    - To-Do:
+        Store the username in access token.
+
+3. Update User Profile
+    - Path: PATCH /updateProfile
+    - Sample Payload: 
+        {
+            location: "",
+            gender: "",
+            birthday: "",
+            streamingServices: [],
+            genres: [],
+            movieIds: [],
+            showIds: [],
+        }
+    - Validations:
+    ==> Get username from the jwt token.
+        a. 'location' should be valid.
+        b. 'gender' should be either Male or Female or Trans.
+        c. 'birthday' should be a 18+ user and have a valid date.
+        d. 'streamingServices' should be from one of these: Netflix, Amazon Prime, Disney+, HBO Max, Paramount+, Crunchyroll, Youtube, Apple TV+.
+        e. 'genres' should be from genres.txt files only.
+        f. mongoose handles createdAt and updatedAt automatically if you define timestamp as true in mongoose model. Do not manually send this in payload.
+
+=========================================================================
+II. Movies
+
+1. Get Movies By Title
+    - Path: GET /getMoviesByTitle?title=Avengers
+    - To-Do:
+        a. Fetch the data based on 'title'. If the record is not found return the error.
+
+2. Get Trending Movies
+    - Path: GET /getTrendingMovies/watching
+    - To-Do:
+        a. Fetch the userStatsMovies data where status is watching and order by release date and count grouped by movie _id.
+
+3. Get Popular Movies
+    - Path: GET /getPopularMovies
+    - To-Do:
+        a. Return userStatsMovies sorted data as per 'rating'.
+
+4. Get Favourited Movies
+    - Path: GET /favouritedMovies
+    - To-Do:
+        a. Return sorted favourited data grouped by movie _id.
+
+=========================================================================
+III. Shows
+
+1. Get Shows By Title
+    - Path: GET /getShowsByTitle?title=Avengers
+    - To-Do:
+        a. Fetch the shows data based on 'title'. If the record is not found return the error.
+
+2. Get Trending Shows
+    - Path: GET /getTrendingShows/watching
+    - To-Do:
+        a. Fetch the userStatsShows data where status is watching and order by release date and count grouped by movie _id.
+
+3. Get Popular Shows
+    - Path: GET /getPopularShows
+    - To-Do:
+        a. Return userStatsShows sorted data as per 'rating'.
+
+4. Get Favourited Shows
+    - Path: GET /favouritedShows
+    - To-Do:
+        a. Return sorted favourited data grouped by shows _id.
+
+=========================================================================
+IV. Your Collections
+
+1. Create Collection
+    - Path: POST /createCollection
+    - Sample Payload
+        {
+            collectionTitle: "",
+            coverImage: "",
+            posterImage: "",
+            description: ""
+        }
+    - Validations:
+    ==> Get username from the jwt token.
+        a. coverImage should be a image link.
+        b. posterImage should be a image link.
+        c. description should not exceed 200 words.
+
+2. Delete Collection
+    - Path: DELETE /deleteCollection/{username}/{collectionTitle}
+    - Validations: 
+    ==> Get username from the jwt token.
+        a. collectionTitle should be present in myCollection table, else throw error.
+
+3. Update Collection
+
+    3.1 Update Basic Collection Details
+        - Path: PATCH /updateCollection/baseDetails
+        - Sample Payload:
+            {
+                collectionTitle: "",
+                coverImage: "",
+                posterImage: "",
+                description: ""
+            }
+        - Validations:
+        ==> Get username from the jwt token.
+            a. coverImage should be a image link.
+            b. posterImage should be a image link.
+            c. description should not exceed 200 words.
+
+    3.2 Add Movies to Collection
+        - Path: PATCH /updateCollection/add
+        - Sample Payload:
+            {
+                collectionTitle: "",
+                moviesId: ""
+            }
+        - Validations:
+        ==> Get username from the jwt token.
+            a. username and collectionTitle should be present in myCollection table else throw error.
+            b. moviesId should be present in movies Table.
+
+    3.3 Remove Movies from Collection
+        - Path: DELETE /updateCollection/remove
+        - Sample Payload:
+            {
+                collectionTitle: "",
+                moviesId: ""
+            }
+        - Validations:
+        ==> Get username from the jwt token.
+            a. username and collectionTitle should be present in myCollection table else throw error.
+            b. moviesId should be present in movies Table.
+
+=========================================================================
+V. User Stats 
+
+- PATH: PATCH /movies/updateStats
+    OR
+- PATH: PATCH /shows/updateStats
+- Sample Payload: 
+    {
+        isFavourite: true,
+        watchlist: true,
+        rating: 9.5,
+        comment: 'One time watch'
+    }
+- Validations:
+==> Get username from the jwt token.
+    a. isFavourite and watchlist should be boolean
+    b. rating should not exceed 10.
+    c. comments should be below 500 words.
+
+=========================================================================
+VI. Dashboard
+
+1. Currently Watching Movies/Shows
+    - PATH: GET /dashboard/watching
+    - Validations: 
+        ==> Get username from the jwt token.
+        a. check if username exists, if not throw error
+
+2. Watched Movies/Shows
+    - PATH: GET /dashboard/watched
+    - Validations:
+        ==> Get username from the jwt token.
+        a. check if username exists, if not throw error
+
+3. Get Movies/Shows that are added in watchlist
+    - PATH: GET /dashboard?watchlist=true
+    - Validations:
+        ==> Get username from the jwt token.
+        a. check if username exists, if not throw error
+
+4. Get All Favourited Movies/Shows.
+    - PATH: GET /shub-yadav/dashboard?isFavourite=true
+    - Validations:
+        ==> Get username from the jwt token.
+        a. check if username exists, if not throw error
+=========================================================================

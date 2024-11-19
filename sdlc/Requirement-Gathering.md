@@ -1,5 +1,5 @@
 1. Shows tab
-    - Trending (Most curretly watched show on the platform)<br/>
+    - Trending (Most curretly watching show on the platform)<br/>
         - list of shows that are currently in watching status. Sort by watch count and release date.
     - Popular (Popular shows of all time based off ratings)<br/>
         - list of shows that have high ratings.
@@ -7,7 +7,7 @@
         - list of shows that are favourited by most users.
 
 2. Movies tab
-    - Trending (Most curretly watched movies on the platform)<br/>
+    - Trending (Most curretly watching movies on the platform)<br/>
         - list of movies that are currently in watching status. Sort by watch count and release date.
     - Popular (Popular movies of all time based off ratings)<br/>
         - list of movies that have high ratings.
