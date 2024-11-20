@@ -1,0 +1,31 @@
+{
+  "name": "track-it-backend",
+  "version": "1.0.0",
+  "description": "Backend Service for TrackIt Website which tracks user movies and shows stats",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShubLuci/trackIt-backend.git"
+  },
+  "keywords": [
+    "Javascript",
+    "NodeJS",
+    "Mongoose",
+    "Express",
+    "Backend"
+  ],
+  "author": "Shubham Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShubLuci/trackIt-backend/issues"
+  },
+  "homepage": "https://github.com/ShubLuci/trackIt-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.2"
+  }
+}
