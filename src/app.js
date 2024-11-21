@@ -2,9 +2,15 @@ const express = require('express');
 const { dbConnection } = require('../config/database');
 require('dotenv').config(); // For using env variables in our application
 
+// Import your routes
+const userRoutes = require('../routes/userRoutes');
+
 const app = express();
 
 const port = 3000;
+
+// Data from server comes in Readable stream. To read the payload use express.json() in your server
+app.use(express.json());
 
 // IIFE for establishing express server and mongodb connection
 ( async () => {
@@ -19,3 +25,6 @@ const port = 3000;
         console.log("ERROR > src/app.js > Server Initialization Failed at port "+port);
     }
 })();
+
+// Use your Routes defined in routes folder
+app.use("/",userRoutes);

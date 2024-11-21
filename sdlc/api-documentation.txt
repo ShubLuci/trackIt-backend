@@ -22,12 +22,11 @@ I. User Registration and Authentication
         a. 'username' is unique.
         b. 'email' should be a valid email address.
         c. 'password' should be encrypted and should be a strong password.
-        d. 'location' should be valid.
-        e. 'gender' should be either Male or Female or Trans.
-        f. 'birthday' should be a 18+ user and have a valid date.
-        g. 'streamingServices' should be from one of these: Netflix, Amazon Prime, Disney+, HBO Max, Paramount+, Crunchyroll, Youtube, Apple TV+.
-        h. 'genres' should be from genres.txt files only.
-        i. mongoose handles createdAt and updatedAt automatically if you define timestamp as true in mongoose model. Do not manually send this in payload.
+        d. 'gender' should be either Male or Female or Trans.
+        e. 'birthday' should be a 18+ user and have a valid date.
+        f. 'streamingServices' should be from one of these: Netflix, Amazon Prime, Disney+, HBO Max, Paramount+, Crunchyroll, Youtube, Apple TV+.
+        g. 'genres' should be from genres.txt files only.
+        h. mongoose handles createdAt and updatedAt automatically if you define timestamp as true in mongoose model. Do not manually send this in payload.
 
 2. Login User
     - Path: GET /login?email=cshubyadav@gmail.com&password=We@123
